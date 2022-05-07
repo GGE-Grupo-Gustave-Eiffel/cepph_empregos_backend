@@ -48,10 +48,10 @@ class VagaController extends Controller
                 $vaga = new vaga;
                 
 
-                $vaga->Departamento = $request->Departamento;
-                $vaga->Numero_de_vagas = $request->Numero_de_vagas;
-                $vaga->Limite_de_candidatura = $request->Limite_de_candidatura;
-                $vaga->Cargo = $request->cargo;
+                $vaga->Departamento = $request->departamento;
+                $vaga->Numero_de_vagas = $request->numero_de_vagas;
+                $vaga->Limite_de_candidatura = $request->limite_de_candidatura;
+                $vaga->cargo = $request->cargo;
                 $vaga->save();
 
                 DB::commit();

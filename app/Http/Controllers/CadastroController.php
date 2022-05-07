@@ -96,7 +96,7 @@ class CadastroController extends Controller
             $candidato->data_nascimento = $request->data;
             $candidato->Nivel_academico = $request->nivel_academico;
             $candidato->Anos_de_experiencia = $request->anos_xp;
-            //$candidato->Id_vaga = $request->Id_vaga;
+            $candidato->Id_vaga = $request->Id_vaga;
 
             $candidato->save();
 
