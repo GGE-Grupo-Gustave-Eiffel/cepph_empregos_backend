@@ -99,5 +99,7 @@ class FiltroController extends Controller
     public function destroy($id)
     {
         //
+       
+    
     }
 }
