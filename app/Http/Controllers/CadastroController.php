@@ -97,6 +97,7 @@ class CadastroController extends Controller
             $candidato->Nivel_academico = $request->nivel_academico;
             $candidato->Anos_de_experiencia = $request->anos_xp;
             $candidato->Id_vaga = $request->Id_vaga;
+            $candidato->descricao_xp = $request->descricao_xp;
 
             $candidato->save();
 
@@ -110,7 +111,7 @@ class CadastroController extends Controller
         } catch(\Exception $e) {
             DB::rollback();
             return response()->json([
-                'message' => 'Verifique os dados do formulário, e volte a tentar.',
+                'message' => 'Verifique os dados do formulário, e volte a tentar!',
             ], 500);
             
             throw $e;
