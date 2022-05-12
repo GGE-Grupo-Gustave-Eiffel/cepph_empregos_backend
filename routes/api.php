@@ -18,10 +18,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+//Route::post('/login', [App\Http\Controllers\loginController::class, 'authenticate']);
 
 Route::resource('cadastro', App\Http\Controllers\CadastroController::class) ;
 
 Route::resource('inscritos', App\Http\Controllers\InscritoController::class);
+
+//Route::middleware('auth:sanctum')->resource('inscritos', App\Http\Controllers\InscritoController::class);
 
 Route::resource('vagas', App\Http\Controllers\VagaController::class);
 
