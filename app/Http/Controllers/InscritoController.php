@@ -94,9 +94,9 @@ class InscritoController extends Controller
               
         //     // $inscritos = DB::delete('DELETE FROM `candidatos` WHERE BI ='."\"".$request->BI."\"");
             
-        $inscritos = DB :: delete('delete from candidatos where BI'.'='."\"".$id."\"");
-           return response()->json([
-                 'message' => ' Inscrição anulada com sucesso!',
+            $inscritos = DB :: delete('delete from candidatos where BI'.'='."\"".$id."\"");
+            return response()->json([
+                'message' => ' Inscrição anulada com sucesso!',
             ], 201);
 
 

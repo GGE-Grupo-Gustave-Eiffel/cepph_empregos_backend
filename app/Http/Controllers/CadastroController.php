@@ -110,11 +110,12 @@ class CadastroController extends Controller
 
         } catch(\Exception $e) {
             DB::rollback();
+            throw $e;
             return response()->json([
                 'message' => 'Verifique os dados do formulário, e volte a tentar!',
             ], 500);
             
-            throw $e;
+            
         }
     }
 
