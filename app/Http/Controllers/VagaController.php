@@ -47,11 +47,10 @@ class VagaController extends Controller
 
                 $vaga = new vaga;
                 
-
                 $vaga->Departamento = $request->departamento;
                 $vaga->Numero_de_vagas = $request->numero_de_vagas;
-                $vaga->Limite_de_candidatura = $request->limite_de_candidatura;
-                $vaga->cargo = $request->cargo;
+                $vaga->Limite_de_candidatura = "".$request->limite_de_candidatura;
+                $vaga->cargo = "".$request->cargo;
                 $vaga->save();
 
                 DB::commit();
@@ -108,8 +107,28 @@ class VagaController extends Controller
      * @param  \App\Models\Vaga  $vaga
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Vaga $vaga)
+    public function destroy($vagaID)
     {
-        //
+         //
+        
+        // return  $inscritos = DB :: delete('delete from candidatos where BI'.'='."\"".$request->BI."\"");
+        try {
+            //    candidato::destroy("\"".$request->BI."\"");
+            //     // $consulta_destroy = 'DELETE FROM `candidatos` WHERE BI ='."\"".$request->BI."\"";
+                  
+            //     // $inscritos = DB::delete('DELETE FROM `candidatos` WHERE BI ='."\"".$request->BI."\"");
+                
+                DB::delete('delete from candidatos where Id_vaga'.'='.$vagaID);
+                DB::delete('delete from vagas where Id'.'='.$vagaID);
+                
+                return response()->json([
+                    'message' => ' Vaga anulada com sucesso!',
+                ], 201);
+    
+    
+        } catch(\Exception $e) {
+            DB::rollback(); 
+            throw $e;
+        }
     }
 }

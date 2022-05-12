@@ -86,5 +86,23 @@ class InscritoController extends Controller
     public function destroy($id)
     {
         //
+        
+        // return  $inscritos = DB :: delete('delete from candidatos where BI'.'='."\"".$request->BI."\"");
+         try {
+        //    candidato::destroy("\"".$request->BI."\"");
+        //     // $consulta_destroy = 'DELETE FROM `candidatos` WHERE BI ='."\"".$request->BI."\"";
+              
+        //     // $inscritos = DB::delete('DELETE FROM `candidatos` WHERE BI ='."\"".$request->BI."\"");
+            
+            $inscritos = DB :: delete('delete from candidatos where BI'.'='."\"".$id."\"");
+            return response()->json([
+                'message' => ' Inscrição anulada com sucesso!',
+            ], 201);
+
+
+         } catch(\Exception $e) {
+           DB::rollback();
+             throw $e;
+         }
     }
 }
